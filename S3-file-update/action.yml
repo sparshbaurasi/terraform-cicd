@@ -1,0 +1,20 @@
+name: s3-file-upload
+description: 'This action is to upload file or folder to s3 bucket'
+
+inputs:
+  BUCKET_NAME:
+    description: 'bucket name'
+    required: true
+  KEY_NAME:
+    description: 'key name'
+    required: true
+  FILE_NAME:
+    description: 'File name'
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: copy to s3
+      run: aws s3 cp {inputs.FILE_NAME} s3://{inputs.BUCKET_NAME}/{inputs.KEY_NAME} --recursive
+      shell: bash
