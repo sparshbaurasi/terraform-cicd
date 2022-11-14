@@ -7,7 +7,6 @@ inputs:
     required: true
   KEY_NAME:
     description: 'key name'
-    required: true
   FILE_NAME:
     description: 'File name'
     required: true
