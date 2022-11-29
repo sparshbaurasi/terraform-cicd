@@ -18,7 +18,7 @@ jobs:
   build:
     strategy:
       matrix:
-        folders: [${{inputs.FOLDERS}},env]
+        folders: ${{github.event.inputs.FOLDERS}}
     runs-on: ubuntu-20.04
     steps: 
       - name: Checkout
