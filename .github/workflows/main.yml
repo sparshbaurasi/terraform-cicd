@@ -28,7 +28,7 @@ jobs:
         with:
           role-to-assume: ${{ secrets.AWS_OIDC_ROLE }}
           role-session-name: Session For OIDC
-          aws-region: eu-central-1
+          aws-region: ap-south-1
       - name: Copy to s3
         uses: sparshbaurasi/terraform-cicd/S3-file-update@main
         with:
