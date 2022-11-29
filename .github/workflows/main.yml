@@ -16,9 +16,9 @@ permissions:
     contents: read  # This is required for actions/checkout
 jobs:
   build:
-    strategy:
-      matrix:
-        folders: ${{github.event.inputs.FOLDERS}}
+#     strategy:
+#       matrix:
+#         folders: ${{github.event.inputs.FOLDERS}}
     runs-on: ubuntu-20.04
     steps: 
       - name: Checkout
@@ -33,4 +33,4 @@ jobs:
         uses: sparshbaurasi/terraform-cicd/S3-file-update@main
         with:
           BUCKET_NAME: ${{ github.event.inputs.BUCKET_NAME }}
-          FILE_NAME: ${{ matrix.folders }}
+          FILE_NAME: ${{ github.event.inputs.FOLDERS }}
