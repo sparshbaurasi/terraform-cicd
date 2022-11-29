@@ -10,6 +10,7 @@ on:
         type: string
     secrets:
        AWS_OIDC_ROLE:
+         required: true
 permissions:
     id-token: write # This is required for requesting the JWT
     contents: read  # This is required for actions/checkout
@@ -17,7 +18,7 @@ jobs:
   build:
     strategy:
       matrix:
-        folders: ${{inputs.FOLDERS}}
+        folders: [${{inputs.FOLDERS}},env]
     runs-on: ubuntu-20.04
     steps: 
       - name: Checkout
